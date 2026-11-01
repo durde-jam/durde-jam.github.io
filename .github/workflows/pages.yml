@@ -1,1 +1,61 @@
+# Deploy دُردِ جام homepage to GitHub Pages
+#
+# Triggers:
+#   - Push to main that changes site/ or .github/workflows/pages.yml
+#   - Manual dispatch
+#
+# Output: https://durde-jam.github.io/
+#
+# The homepage (site/index.html) is static and reads issues.json at runtime.
+# To publish a new edition:
+#   1. Add the issue HTML/PDF to site/issues/ (or the repo's issues/ folder)
+#   2. Add an entry to site/issues.json
+#   3. Push to main — this workflow re-deploys automatically
 
+name: Deploy homepage to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build
+        # The site/ directory IS the publishable artifact — no build step needed.
+        # If a future build step (e.g. asset compilation) is required, add it here.
+        run: |
+          echo "Publishing site/ directory as-is"
+          ls -la site/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

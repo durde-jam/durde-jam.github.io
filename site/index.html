@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="دُردِ جام — هضم هفتگی اخبار بین‌المللی برای تصمیم‌گیرندگان فارسی‌زبان">
+    <title>دُردِ جام — هضم هفتگی اخبار</title>
+    <style>
+        /* ─── Foundation ──────────────────────────────────────────── */
+        :root {
+            --surface: #f4eddf;
+            --surface-card: #faf6ee;
+            --ink: #1a1a1a;
+            --ink-soft: #4a4a4a;
+            --ink-muted: #7a7a7a;
+            --accent: #2d5016;
+            --accent-gold: #b8860b;
+            --rule: #d4c9b5;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08);
+            --max-width: 960px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Vazirmatn', 'IRANYekan', 'Tahoma', sans-serif;
+            background: var(--surface);
+            color: var(--ink);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ─── Header ──────────────────────────────────────────────── */
+        .site-header {
+            background: var(--surface-card);
+            border-bottom: 1px solid var(--rule);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .site-header__masthead {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .site-header__tagline {
+            font-size: 1rem;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+
+        .site-header__tagline span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* ─── Main ────────────────────────────────────────────────── */
+        .site-main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ─── Intro ───────────────────────────────────────────────── */
+        .intro {
+            background: var(--surface-card);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--accent);
+        }
+
+        .intro__title {
+            font-size: 1.15rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .intro__body {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+
+        /* ─── Latest edition ──────────────────────────────────────── */
+        .latest {
+            margin-bottom: 3rem;
+        }
+
+        .latest__label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        .latest__card {
+            background: var(--surface-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .latest__card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .latest__card-body {
+            padding: 2rem;
+        }
+
+        .latest__issue-number {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .latest__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+
+        .latest__summary {
+            color: var(--ink-soft);
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .latest__meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+        }
+
+        .latest__date {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .latest__actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.15s ease, color 0.15s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn--primary {
+            background: var(--accent);
+            color: var(--surface-card);
+        }
+
+        .btn--primary:hover {
+            background: #1f3a0f;
+        }
+
+        .btn--secondary {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn--secondary:hover {
+            background: var(--accent);
+            color: var(--surface-card);
+        }
+
+        /* ─── Archive ─────────────────────────────────────────────── */
+        .archive__label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        .archive__list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .archive__item {
+            background: var(--surface-card);
+            border-radius: 6px;
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.15s ease;
+        }
+
+        .archive__item:hover {
+            transform: translateY(-1px);
+        }
+
+        .archive__item-number {
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .archive__item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .archive__item-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .archive__item-title a:hover {
+            color: var(--accent);
+        }
+
+        .archive__item-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ─── Footer ──────────────────────────────────────────────── */
+        .site-footer {
+            border-top: 1px solid var(--rule);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--ink-muted);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        .site-footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ─── Loading state ───────────────────────────────────────── */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--ink-muted);
+        }
+
+        /* ─── Error state ─────────────────────────────────────────── */
+        .error {
+            text-align: center;
+            padding: 2rem;
+            color: #8b0000;
+            background: #fdf0f0;
+            border-radius: 6px;
+        }
+
+        /* ─── Responsive ──────────────────────────────────────────── */
+        @media (max-width: 640px) {
+            .site-header__masthead {
+                font-size: 1.75rem;
+            }
+            .site-header__tagline {
+                font-size: 0.9rem;
+            }
+            .latest__title {
+                font-size: 1.2rem;
+            }
+            .latest__card-body {
+                padding: 1.5rem;
+            }
+            .archive__list {
+                grid-template-columns: 1fr;
+            }
+            .btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1 class="site-header__masthead">دُردِ جام</h1>
+        <p class="site-header__tagline">هضم هفتگی اخبار بین‌المللی برای <span>تصمیم‌گیرندگان فارسی‌زبان</span></p>
+    </header>
+
+    <main class="site-main">
+        <section class="intro">
+            <h2 class="intro__title">درباره دُردِ جام</h2>
+            <p class="intro__body">
+                دُردِ جام یک هضم هفتگی از مهم‌ترین اخبار بین‌المللی است که با ترکیب بیش از پنجاه منبع خبری و تحلیل ویراستاری، برای خواننده فارسی‌زبان تنظیم می‌شود. هدف ما این است که حجم روزانه اخبار را به یک مجله خوانا، دقیق و قابل اعتماد تبدیل کنیم — بدون غرایب، بدون تکرار، و با تمرکز بر آنچه برای تصمیم‌گیری در ایران و منطقه اهمیت دارد.
+            </p>
+        </section>
+
+        <section class="latest" id="latest">
+            <div class="loading">در حال بارگذاری آخرین شماره…</div>
+        </section>
+
+        <section class="archive">
+            <h2 class="archive__label">آرشیو شماره‌ها</h2>
+            <ul class="archive__list" id="archive-list">
+                <li class="loading">در حال بارگذاری…</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>دُردِ جام — هضم هفتگی اخبار. © ۱۴۰۵–۱۴۰۶.</p>
+        <p style="margin-top: 0.5rem;">برای بازخورد و گزارش خطا: <a href="mailto:durde.jam@example.com">ایمیل تحریریه</a></p>
+    </footer>
+
+    <script>
+        // ─── Issue manifest loader ──────────────────────────────────
+        // The homepage reads issues.json and renders the latest + archive.
+        // To publish a new edition: add an entry to issues.json and push.
+        // No homepage rebuild required.
+
+        (async function() {
+            'use strict';
+
+            const LATEST_COUNT = 1; // show only the most recent as "latest"
+
+            try {
+                const response = await fetch('/issues.json');
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
+                const data = await response.json();
+
+                const issues = (data.issues || []).slice().sort(function(a, b) {
+                    return b.number - a.number;
+                });
+
+                if (issues.length === 0) {
+                    document.getElementById('latest').innerHTML =
+                        '<div class="error">هنوز شماره‌ای منتشر نشده است.</div>';
+                    document.getElementById('archive-list').innerHTML =
+                        '<li class="loading">موردی یافت نشد.</li>';
+                    return;
+                }
+
+                // ── Render latest ────────────────────────────────────
+                const latest = issues[0];
+                const latestHtml = buildLatestCard(latest);
+                document.getElementById('latest').innerHTML = latestHtml;
+
+                // ── Render archive (everything except the latest) ────
+                const archive = issues.slice(LATEST_COUNT);
+                if (archive.length === 0) {
+                    document.getElementById('archive-list').innerHTML =
+                        '<li class="loading">شماره قدیمی‌تری موجود نیست.</li>';
+                } else {
+                    document.getElementById('archive-list').innerHTML =
+                        archive.map(buildArchiveItem).join('');
+                }
+
+            } catch (err) {
+                console.error('Failed to load issues.json:', err);
+                document.getElementById('latest').innerHTML =
+                    '<div class="error">بارگذاری شماره‌ها ناموفق بود. بعداً تلاش کنید.</div>';
+                document.getElementById('archive-list').innerHTML = '';
+            }
+
+            // ── Helpers ─────────────────────────────────────────────
+            function escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function buildLatestCard(issue) {
+                const actions = [];
+                if (issue.url) {
+                    actions.push(
+                        '<a href="' + escapeHtml(issue.url) + '" class="btn btn--primary">خواندن مجله</a>'
+                    );
+                }
+                if (issue.pdf_print) {
+                    actions.push(
+                        '<a href="' + escapeHtml(issue.pdf_print) + '" class="btn btn--secondary">PDF چاپی</a>'
+                    );
+                }
+                if (issue.pdf_mobile) {
+                    actions.push(
+                        '<a href="' + escapeHtml(issue.pdf_mobile) + '" class="btn btn--secondary">PDF موبایل</a>'
+                    );
+                }
+
+                return '' +
+                    '<span class="latest__label">آخرین شماره</span>' +
+                    '<article class="latest__card">' +
+                        '<div class="latest__card-body">' +
+                            '<div class="latest__issue-number">شماره ' + escapeHtml(toPersianDigits(issue.number)) + '</div>' +
+                            '<h2 class="latest__title">' + escapeHtml(issue.title || issue.subtitle || '') + '</h2>' +
+                            (issue.cover_summary ?
+                                '<p class="latest__summary">' + escapeHtml(issue.cover_summary) + '</p>' : '') +
+                            '<div class="latest__meta">' +
+                                '<span class="latest__date">' + escapeHtml(issue.date_jalali || '') + '</span>' +
+                            '</div>' +
+                            '<div class="latest__actions">' + actions.join('') + '</div>' +
+                        '</div>' +
+                    '</article>';
+            }
+
+            function buildArchiveItem(issue) {
+                const title = issue.title || issue.subtitle || ('شماره ' + issue.number);
+                const url = issue.url || '#';
+                return '' +
+                    '<li class="archive__item">' +
+                        '<div class="archive__item-number">شماره ' + escapeHtml(toPersianDigits(issue.number)) + '</div>' +
+                        '<h3 class="archive__item-title"><a href="' + escapeHtml(url) + '">' +
+                            escapeHtml(title) + '</a></h3>' +
+                        '<div class="archive__item-date">' + escapeHtml(issue.date_jalali || '') + '</div>' +
+                    '</li>';
+            }
+
+            function toPersianDigits(n) {
+                const persian = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+                return String(n).replace(/\d/g, function(d) {
+                    return persian[parseInt(d, 10)];
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -85,6 +85,40 @@
             font-weight: 600;
         }
 
+        .intro__details {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .intro__details > summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .intro__details > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .intro__details > summary::after {
+            content: "+";
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--accent-gold);
+            margin-right: 1rem;
+        }
+
+        .intro__details[open] > summary::after {
+            content: "−";
+        }
+
+        .intro__details > .intro__body {
+            padding-bottom: 1.5rem;
+        }
+
         .intro__body {
             color: var(--ink-soft);
             font-size: 0.95rem;
@@ -346,9 +380,10 @@
 
     <main class="site-main">
         <section class="intro">
-            <h2 class="intro__title">درباره دُردِ جام</h2>
+            <details class="intro__details">
+                <summary class="intro__title">درباره دُردِ جام</summary>
 
-            <div class="intro__body">
+                <div class="intro__body">
                 <p>
                     دُردِ جام یک مجله خبری هفتگی است که با رصد بیش از ۷۰ منبع خبری و پردازش حدود ۱۰۰۰ مقاله در هر روز، مهم‌ترین تحولات بین‌المللی را گردآوری، تحلیل و دسته‌بندی می‌کند.
                 </p>
@@ -390,7 +425,8 @@
                 <p>
                     دُردِ جام می‌خواهد این تجربه آرام، پیوسته، دقیق و قابل اعتماد باشد؛ دور از تکرار، حواشی و هیاهوی خبری.
                 </p>
-            </div>
+                </div>
+            </details>
         </section>
 
         <section class="latest" id="latest">

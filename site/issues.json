@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "issues": [
     {
       "number": 13,
@@ -8,8 +8,6 @@
       "title": "حمله مین چسبی به نفتکش اماراتی در تنگه هرمز و تغییر تاکتیک سپاه پاسداران",
       "subtitle": "شماره ۱۳ — ۹ آبان ۱۴۰۵",
       "url": "/issues/issue_13.html",
-      "pdf_print": "/issues/issue_13.pdf",
-      "pdf_mobile": "/issues/issue_13-mobile.pdf",
       "cover_summary": "حمله مین چسبی به نفتکش اماراتی، افزایش ۴۳ درصدی دارایی‌های نفتی ترامپ، فروش پاتریوت به اوکراین، و افشای عملیات جاسوسی سایبری ایران علیه خبرنگار استرالیایی."
     },
     {
@@ -19,6 +17,24 @@
       "title": "شماره ۱۲",
       "subtitle": "شماره ۱۲ — ۲ آبان ۱۴۰۵",
       "url": "/issues/issue_12.html",
+      "cover_summary": ""
+    },
+    {
+      "number": 11,
+      "title": "شماره 11",
+      "subtitle": "شماره 11",
+      "date_jalali": "",
+      "date_gregorian": "",
+      "url": "/issues/issue_11.html",
+      "cover_summary": ""
+    },
+    {
+      "number": 10,
+      "title": "شماره 10",
+      "subtitle": "شماره 10",
+      "date_jalali": "",
+      "date_gregorian": "",
+      "url": "/issues/issue_10.html",
       "cover_summary": ""
     }
   ]

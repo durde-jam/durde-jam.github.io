@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="دُردِ جام — مجله خبری هفتگی؛ هضم و تحلیل اخبار بین‌المللی">
     <title>دُردِ جام — مجله خبری هفتگی</title>
+    <link rel="stylesheet" href="/assets/css/typography.css">
     <style>
         /* ─── Foundation ──────────────────────────────────────────── */
         :root {
@@ -25,7 +26,7 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Vazirmatn', 'IRANYekan', 'Tahoma', sans-serif;
+            font-family: 'IRANYekanFN', 'Tahoma', sans-serif;
             background: var(--surface);
             color: var(--ink);
             line-height: 1.7;
@@ -86,7 +87,7 @@
         }
 
         .intro__details {
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--rule);
             margin-bottom: 2rem;
         }
 
@@ -370,12 +371,121 @@
                 text-align: center;
             }
         }
+
+        /* ─── Homepage visual refinement ─────────────────────────── */
+
+        .site-header {
+            border-top: 4px solid var(--accent);
+            padding: clamp(2rem, 5vw, 3.25rem) 1.5rem 2.25rem;
+        }
+
+        .site-header__brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .site-header__logo {
+            display: block;
+            width: clamp(76px, 10vw, 104px);
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 0.35rem;
+        }
+
+        .site-header__masthead {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            line-height: 1.35;
+            margin-bottom: 0;
+        }
+
+        .site-header__tagline {
+            margin-top: 0.2rem;
+            line-height: 1.9;
+        }
+
+        .site-main {
+            width: 100%;
+        }
+
+        .intro,
+        .latest__card,
+        .archive__item {
+            border: 1px solid rgba(212, 201, 181, 0.65);
+        }
+
+        .intro {
+            border-right: 4px solid var(--accent);
+        }
+
+        .intro__details > summary:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 4px;
+            border-radius: 3px;
+        }
+
+        .archive__item {
+            transition:
+                transform 0.15s ease,
+                box-shadow 0.15s ease,
+                border-color 0.15s ease;
+        }
+
+        .archive__item:hover {
+            border-color: var(--rule);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        @media (max-width: 640px) {
+            .site-header {
+                padding: 1.75rem 1rem;
+            }
+
+            .site-header__logo {
+                width: 76px;
+            }
+
+            .site-main {
+                padding: 1.25rem 1rem;
+            }
+
+            .intro {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+
     </style>
 </head>
 <body>
     <header class="site-header">
-        <h1 class="site-header__masthead">دُردِ جام</h1>
-        <p class="site-header__tagline">مجله خبری هفتگی برای <span>خوانندگان فارسی‌زبان</span></p>
+        <div class="site-header__brand">
+            <img
+                class="site-header__logo"
+                src="/assets/images/durde_jam_logo.png"
+                alt="نشان دُردِ جام"
+                width="96"
+                height="96"
+                fetchpriority="high"
+            >
+            <h1 class="site-header__masthead">دُردِ جام</h1>
+            <p class="site-header__tagline">مجله خبری هفتگی برای <span>خوانندگان فارسی‌زبان</span></p>
+        </div>
     </header>
 
     <main class="site-main">
